@@ -11,93 +11,120 @@
       box-sizing:border-box;
     }
 
-    html, body{
-      width:100%;
-      height:100%;
-      font-family:"Courier New", monospace;
+    html{
       scroll-behavior:smooth;
     }
 
     body{
+      font-family: Arial, Helvetica, sans-serif;
       color:#ffffff;
       background:
-        radial-gradient(circle at top, rgba(0,255,120,0.12), transparent 30%),
-        radial-gradient(circle at bottom, rgba(0,255,120,0.08), transparent 30%),
-        linear-gradient(rgba(0,255,100,0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,255,100,0.08) 1px, transparent 1px),
-        linear-gradient(180deg, #010302 0%, #02110b 45%, #000000 100%);
-      background-size:auto, auto, 38px 38px, 38px 38px, auto;
+        radial-gradient(circle at 20% 20%, rgba(255,0,80,0.10), transparent 25%),
+        radial-gradient(circle at 80% 0%, rgba(0,255,170,0.12), transparent 30%),
+        linear-gradient(rgba(0,255,180,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,180,0.08) 1px, transparent 1px),
+        linear-gradient(180deg, #020202 0%, #03110d 50%, #000000 100%);
+      background-size: auto, auto, 40px 40px, 40px 40px, auto;
       overflow-x:hidden;
     }
 
-    .main-page{
-      min-height:100vh;
+    .top-glow{
+      position:fixed;
+      top:-120px;
+      left:50%;
+      transform:translateX(-50%);
+      width:500px;
+      height:250px;
+      background:radial-gradient(circle, rgba(0,255,170,0.20), transparent 65%);
+      filter:blur(30px);
+      pointer-events:none;
+      z-index:0;
+    }
+
+    .wrapper{
+      position:relative;
+      z-index:1;
       width:100%;
+    }
+
+    .hero{
+      min-height:100vh;
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:24px 16px;
+      padding:30px 18px;
     }
 
-    .page-box{
+    .hero-box{
       width:100%;
-      max-width:900px;
-      min-height:92vh;
-      border:1px solid rgba(0,255,153,0.18);
+      max-width:1200px;
+      min-height:90vh;
+      border:1px solid rgba(0,255,170,0.20);
       border-radius:28px;
-      background:rgba(0, 10, 8, 0.55);
-      backdrop-filter: blur(8px);
+      background:rgba(2,10,8,0.72);
       box-shadow:
-        0 0 30px rgba(0,255,153,0.10),
-        inset 0 0 20px rgba(0,255,153,0.03);
+        0 0 30px rgba(0,255,170,0.08),
+        inset 0 0 20px rgba(0,255,170,0.04);
+      backdrop-filter: blur(6px);
+      padding:40px 24px;
       display:flex;
       flex-direction:column;
       justify-content:space-between;
-      padding:34px 22px;
-      position:relative;
     }
 
-    .top-area{
+    .hero-top{
       text-align:center;
     }
 
-    .icon{
-      font-size:50px;
-      margin-bottom:10px;
-      color:#ffd000;
-      text-shadow:0 0 18px #ffd000;
+    .logo-icon{
+      font-size:58px;
+      margin-bottom:12px;
+      color:#ffd54a;
+      text-shadow:0 0 15px #ffd54a, 0 0 30px rgba(255,213,74,0.4);
     }
 
-    .title{
-      font-size:48px;
-      font-weight:700;
-      letter-spacing:2px;
-      color:#00ff99;
+    .main-title{
+      font-size:72px;
+      font-weight:900;
+      letter-spacing:3px;
+      color:#00ffaa;
+      text-transform:uppercase;
       text-shadow:
-        0 0 10px #00ff99,
-        0 0 24px rgba(0,255,153,0.7);
+        0 0 10px #00ffaa,
+        0 0 25px rgba(0,255,170,0.8),
+        0 0 50px rgba(0,255,170,0.35);
     }
 
-    .subtitle{
-      margin-top:12px;
+    .sub-title{
+      margin-top:14px;
+      font-size:24px;
+      color:#eafff8;
+      letter-spacing:1px;
+    }
+
+    .tagline{
+      margin-top:16px;
       font-size:18px;
-      color:#ecfff5;
-      opacity:0.95;
+      color:#bfffe8;
+      max-width:850px;
+      margin-left:auto;
+      margin-right:auto;
+      line-height:1.8;
     }
 
-    .line{
-      width:150px;
-      height:3px;
-      background:#00ff99;
-      margin:22px auto 0;
+    .divider{
+      width:180px;
+      height:4px;
+      margin:24px auto 0;
       border-radius:20px;
-      box-shadow:0 0 12px #00ff99;
+      background:linear-gradient(90deg, transparent, #00ffaa, transparent);
+      box-shadow:0 0 15px #00ffaa;
     }
 
-    .center-area{
+    .action-area{
       width:100%;
-      max-width:700px;
-      margin:0 auto;
+      max-width:900px;
+      margin:35px auto 0;
     }
 
     .btn{
@@ -105,95 +132,216 @@
       width:100%;
       text-align:center;
       text-decoration:none;
-      padding:18px 18px;
+      padding:22px 20px;
       border-radius:18px;
-      font-size:22px;
-      font-weight:bold;
+      font-size:28px;
+      font-weight:800;
       margin:16px 0;
       transition:0.25s ease;
     }
 
     .btn:hover{
-      transform:translateY(-2px);
+      transform:translateY(-2px) scale(1.01);
     }
 
     .whatsapp-btn{
-      background:linear-gradient(135deg, #25D366, #1fb955);
-      color:#051b0e;
+      color:#04140c;
+      background:linear-gradient(135deg,#2cff88,#1db954);
       box-shadow:
-        0 0 18px rgba(37,211,102,0.45),
-        0 0 36px rgba(37,211,102,0.15);
+        0 0 18px rgba(44,255,136,0.45),
+        0 0 35px rgba(44,255,136,0.18);
     }
 
     .channel-btn{
-      background:linear-gradient(135deg, #07130f, #0a1d17);
-      color:#00ff99;
-      border:2px solid #00ff99;
+      color:#00ffaa;
+      background:linear-gradient(135deg,#07120f,#0d1c18);
+      border:2px solid #00ffaa;
       box-shadow:
-        0 0 16px rgba(0,255,153,0.18),
-        inset 0 0 12px rgba(0,255,153,0.04);
+        0 0 18px rgba(0,255,170,0.18),
+        inset 0 0 12px rgba(0,255,170,0.04);
     }
 
-    .info-card{
-      margin-top:24px;
-      padding:28px 20px;
-      border-radius:22px;
-      border:1px solid rgba(0,255,153,0.28);
-      background:rgba(0, 18, 12, 0.45);
+    .middle-grid{
+      display:grid;
+      grid-template-columns:1.1fr 0.9fr;
+      gap:24px;
+      margin-top:35px;
+    }
+
+    .card{
+      border-radius:24px;
+      border:1px solid rgba(0,255,170,0.22);
+      background:rgba(3,20,15,0.55);
       box-shadow:
-        0 0 18px rgba(0,255,153,0.08),
-        inset 0 0 12px rgba(0,255,153,0.04);
+        0 0 20px rgba(0,255,170,0.08),
+        inset 0 0 12px rgba(0,255,170,0.04);
+      padding:28px 22px;
+    }
+
+    .card-title{
+      font-size:30px;
+      font-weight:800;
+      color:#00ffaa;
+      margin-bottom:16px;
+      text-shadow:0 0 10px rgba(0,255,170,0.35);
+    }
+
+    .card-text{
+      font-size:20px;
+      line-height:1.9;
+      color:#effff9;
+    }
+
+    .services{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+      margin-top:8px;
+    }
+
+    .service-box{
+      padding:18px 14px;
+      border-radius:18px;
+      border:1px solid rgba(0,255,170,0.18);
+      background:rgba(0,0,0,0.28);
+      font-size:19px;
+      font-weight:700;
+      color:#dffff5;
+      text-align:center;
+      box-shadow: inset 0 0 10px rgba(0,255,170,0.03);
+    }
+
+    .bottom-bar{
+      margin-top:28px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+
+    .stat{
+      border-radius:18px;
+      border:1px solid rgba(0,255,170,0.18);
+      background:rgba(0,0,0,0.28);
+      padding:18px 12px;
       text-align:center;
     }
 
-    .info-title{
-      font-size:25px;
-      color:#00ff99;
-      margin-bottom:12px;
-      text-shadow:0 0 10px rgba(0,255,153,0.35);
+    .stat h3{
+      font-size:28px;
+      color:#00ffaa;
+      margin-bottom:8px;
     }
 
-    .info-text{
-      font-size:18px;
-      line-height:1.9;
-      color:#effff5;
+    .stat p{
+      font-size:16px;
+      color:#eafff8;
     }
 
     .footer{
-      text-align:center;
-      font-size:17px;
-      color:#d7ffe8;
-      opacity:0.95;
       margin-top:26px;
+      text-align:center;
+      font-size:18px;
+      color:#cffff0;
+      letter-spacing:0.5px;
     }
 
-    @media (max-width:700px){
-      .page-box{
-        min-height:95vh;
+    @media (max-width: 900px){
+      .main-title{
+        font-size:52px;
+      }
+
+      .sub-title{
+        font-size:20px;
+      }
+
+      .tagline{
+        font-size:16px;
+      }
+
+      .btn{
+        font-size:22px;
+        padding:18px 14px;
+      }
+
+      .middle-grid{
+        grid-template-columns:1fr;
+      }
+
+      .card-title{
+        font-size:25px;
+      }
+
+      .card-text{
+        font-size:17px;
+      }
+    }
+
+    @media (max-width: 600px){
+      .hero{
+        padding:16px 10px;
+      }
+
+      .hero-box{
+        min-height:100vh;
+        border-radius:0;
         padding:26px 14px;
-        border-radius:22px;
       }
 
-      .title{
-        font-size:34px;
+      .logo-icon{
+        font-size:46px;
       }
 
-      .subtitle{
-        font-size:15px;
+      .main-title{
+        font-size:38px;
+        letter-spacing:1px;
+      }
+
+      .sub-title{
+        font-size:17px;
+      }
+
+      .tagline{
+        font-size:14px;
+        line-height:1.7;
       }
 
       .btn{
         font-size:18px;
-        padding:16px 14px;
+        border-radius:16px;
+        padding:16px 12px;
       }
 
-      .info-title{
+      .card{
+        padding:20px 14px;
+        border-radius:20px;
+      }
+
+      .card-title{
         font-size:21px;
       }
 
-      .info-text{
+      .card-text{
         font-size:15px;
-        line-height:1.8;
+      }
+
+      .services{
+        grid-template-columns:1fr;
+      }
+
+      .service-box{
+        font-size:16px;
+      }
+
+      .bottom-bar{
+        grid-template-columns:1fr;
+      }
+
+      .stat h3{
+        font-size:24px;
+      }
+
+      .stat p{
+        font-size:15px;
       }
 
       .footer{
@@ -203,40 +351,79 @@
   </style>
 </head>
 <body>
-  <section class="main-page">
-    <div class="page-box">
+  <div class="top-glow"></div>
 
-      <div class="top-area">
-        <div class="icon">⚡</div>
-        <h1 class="title">RIZWANXBRAND</h1>
-        <p class="subtitle">Welcome to RizwanXBrand Home</p>
-        <div class="line"></div>
-      </div>
+  <div class="wrapper">
+    <section class="hero">
+      <div class="hero-box">
 
-      <div class="center-area">
-        <a class="btn whatsapp-btn" href="https://wa.me/923060729141" target="_blank">
-          Contact on WhatsApp
-        </a>
-
-        <a class="btn channel-btn" href="https://whatsapp.com/channel/0029VbCoOFkFMqrSCwFxhQ0j" target="_blank">
-          Join SMS Updates Channel
-        </a>
-
-        <div class="info-card">
-          <h2 class="info-title">24/7 Support</h2>
-          <p class="info-text">
-            RizwanXBrand Support is available 24 hours for you.<br><br>
-            For the latest updates, new services, and important SMS information,
-            join our official channel and stay connected with us.
+        <div class="hero-top">
+          <div class="logo-icon">⚡</div>
+          <h1 class="main-title">RIZWANXBRAND</h1>
+          <p class="sub-title">Premium Support & Updates Hub</p>
+          <p class="tagline">
+            RizwanXBrand Support is available 24 hours for you.  
+            Stay connected with our official WhatsApp contact and join the channel
+            for new updates, announcements, and latest services.
           </p>
+          <div class="divider"></div>
+
+          <div class="action-area">
+            <a class="btn whatsapp-btn" href="https://wa.me/923060729141" target="_blank">
+              Contact on WhatsApp
+            </a>
+
+            <a class="btn channel-btn" href="https://whatsapp.com/channel/0029VbCoOFkFMqrSCwFxhQ0j" target="_blank">
+              Follow The SMS Updates Family 💞
+            </a>
+          </div>
         </div>
-      </div>
 
-      <div class="footer">
-        Made with RizwanXBrand 🔥
-      </div>
+        <div class="middle-grid">
+          <div class="card">
+            <h2 class="card-title">24/7 Support Center</h2>
+            <p class="card-text">
+              Welcome to RizwanXBrand Home.  
+              We provide a clean and professional support platform where you can
+              connect anytime, get the latest updates, and stay informed through
+              our official WhatsApp channel.
+            </p>
+          </div>
 
-    </div>
-  </section>
+          <div class="card">
+            <h2 class="card-title">Our Services</h2>
+            <div class="services">
+              <div class="service-box">WhatsApp Support</div>
+              <div class="service-box">Daily Updates</div>
+              <div class="service-box">Channel Announcements</div>
+              <div class="service-box">Fast Response</div>
+              <div class="service-box">Premium Access</div>
+              <div class="service-box">24/7 Help</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bottom-bar">
+          <div class="stat">
+            <h3>24/7</h3>
+            <p>Active Support</p>
+          </div>
+          <div class="stat">
+            <h3>Fast</h3>
+            <p>Quick Response</p>
+          </div>
+          <div class="stat">
+            <h3>Official</h3>
+            <p>Trusted Channel</p>
+          </div>
+        </div>
+
+        <div class="footer">
+          Made with RizwanXBrand 🔥🔥
+        </div>
+
+      </div>
+    </section>
+  </div>
 </body>
 </html>
